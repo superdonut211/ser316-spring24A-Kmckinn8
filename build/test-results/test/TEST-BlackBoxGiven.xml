@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BlackBoxGiven" tests="65" skipped="0" failures="18" errors="0" timestamp="2024-01-26T06:12:23" hostname="kyle-VirtualBox" time="0.094">
+<testsuite name="BlackBoxGiven" tests="65" skipped="0" failures="18" errors="0" timestamp="2024-01-26T06:38:23" hostname="kyle-VirtualBox" time="0.071">
   <properties/>
-  <testcase name="testIncorrectWordTooLong[0]" classname="BlackBoxGiven" time="0.005"/>
+  <testcase name="testIncorrectWordTooLong[0]" classname="BlackBoxGiven" time="0.007"/>
   <testcase name="testEmptyGuess[0]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testIncorrectWordPartiallyMatching[0]" classname="BlackBoxGiven" time="0.016">
+  <testcase name="testIncorrectWordPartiallyMatching[0]" classname="BlackBoxGiven" time="0.009">
     <failure message="java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -59,16 +59,16 @@
   </testcase>
   <testcase name="testGuessWithSymbolsNumbers[0]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testIncorrectWordCorrectLength[0]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testExactCorrectWord[0]" classname="BlackBoxGiven" time="0.001"/>
+  <testcase name="testExactCorrectWord[0]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testRepeatedGuess[0]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testCorrectSingleLetterOccursOnce[0]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testIncorrectSingleLetter[0]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="winning[0]" classname="BlackBoxGiven" time="0.001"/>
+  <testcase name="winning[0]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testCorrectSingleLetterOccursMultipleTimes[0]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testIncorrectWordTooShort[0]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testGuessAfterGameOver[0]" classname="BlackBoxGiven" time="0.001"/>
-  <testcase name="testIncorrectWordTooLong[1]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testEmptyGuess[1]" classname="BlackBoxGiven" time="0.0">
+  <testcase name="testGuessAfterGameOver[0]" classname="BlackBoxGiven" time="0.002"/>
+  <testcase name="testIncorrectWordTooLong[1]" classname="BlackBoxGiven" time="0.001"/>
+  <testcase name="testEmptyGuess[1]" classname="BlackBoxGiven" time="0.004">
     <failure message="java.lang.AssertionError: expected:&lt;4.1&gt; but was:&lt;0.0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;4.1&gt; but was:&lt;0.0&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -122,7 +122,7 @@
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="testIncorrectWordPartiallyMatching[1]" classname="BlackBoxGiven" time="0.001">
+  <testcase name="testIncorrectWordPartiallyMatching[1]" classname="BlackBoxGiven" time="0.0">
     <failure message="java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -232,8 +232,8 @@
   </testcase>
   <testcase name="testIncorrectWordCorrectLength[1]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testExactCorrectWord[1]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testRepeatedGuess[1]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testCorrectSingleLetterOccursOnce[1]" classname="BlackBoxGiven" time="0.0">
+  <testcase name="testRepeatedGuess[1]" classname="BlackBoxGiven" time="0.003"/>
+  <testcase name="testCorrectSingleLetterOccursOnce[1]" classname="BlackBoxGiven" time="0.001">
     <failure message="java.lang.AssertionError: expected:&lt;1.1&gt; but was:&lt;1.2&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;1.1&gt; but was:&lt;1.2&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -287,9 +287,9 @@
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="testIncorrectSingleLetter[1]" classname="BlackBoxGiven" time="0.0"/>
+  <testcase name="testIncorrectSingleLetter[1]" classname="BlackBoxGiven" time="0.001"/>
   <testcase name="winning[1]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testCorrectSingleLetterOccursMultipleTimes[1]" classname="BlackBoxGiven" time="0.001">
+  <testcase name="testCorrectSingleLetterOccursMultipleTimes[1]" classname="BlackBoxGiven" time="0.0">
     <failure message="java.lang.AssertionError: expected:&lt;1.2&gt; but was:&lt;1.4&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;1.2&gt; but was:&lt;1.4&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -399,8 +399,8 @@
 </failure>
   </testcase>
   <testcase name="testIncorrectWordTooLong[2]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testEmptyGuess[2]" classname="BlackBoxGiven" time="0.001"/>
-  <testcase name="testIncorrectWordPartiallyMatching[2]" classname="BlackBoxGiven" time="0.0">
+  <testcase name="testEmptyGuess[2]" classname="BlackBoxGiven" time="0.005"/>
+  <testcase name="testIncorrectWordPartiallyMatching[2]" classname="BlackBoxGiven" time="0.001">
     <failure message="java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -455,7 +455,7 @@
 </failure>
   </testcase>
   <testcase name="testGuessWithSymbolsNumbers[2]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testIncorrectWordCorrectLength[2]" classname="BlackBoxGiven" time="0.001">
+  <testcase name="testIncorrectWordCorrectLength[2]" classname="BlackBoxGiven" time="0.0">
     <failure message="java.lang.AssertionError: expected:&lt;2.0&gt; but was:&lt;2.3&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;2.0&gt; but was:&lt;2.3&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -511,8 +511,8 @@
   </testcase>
   <testcase name="testExactCorrectWord[2]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testRepeatedGuess[2]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testCorrectSingleLetterOccursOnce[2]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testIncorrectSingleLetter[2]" classname="BlackBoxGiven" time="0.0"/>
+  <testcase name="testCorrectSingleLetterOccursOnce[2]" classname="BlackBoxGiven" time="0.008"/>
+  <testcase name="testIncorrectSingleLetter[2]" classname="BlackBoxGiven" time="0.001"/>
   <testcase name="winning[2]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testCorrectSingleLetterOccursMultipleTimes[2]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testIncorrectWordTooShort[2]" classname="BlackBoxGiven" time="0.0"/>
@@ -628,10 +628,10 @@
   </testcase>
   <testcase name="testGuessWithSymbolsNumbers[3]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testIncorrectWordCorrectLength[3]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testExactCorrectWord[3]" classname="BlackBoxGiven" time="0.001"/>
+  <testcase name="testExactCorrectWord[3]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testRepeatedGuess[3]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testCorrectSingleLetterOccursOnce[3]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testIncorrectSingleLetter[3]" classname="BlackBoxGiven" time="0.051"/>
+  <testcase name="testIncorrectSingleLetter[3]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="winning[3]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testCorrectSingleLetterOccursMultipleTimes[3]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testIncorrectWordTooShort[3]" classname="BlackBoxGiven" time="0.0"/>
@@ -690,7 +690,7 @@
 </failure>
   </testcase>
   <testcase name="testIncorrectWordTooLong[4]" classname="BlackBoxGiven" time="0.0"/>
-  <testcase name="testEmptyGuess[4]" classname="BlackBoxGiven" time="0.001"/>
+  <testcase name="testEmptyGuess[4]" classname="BlackBoxGiven" time="0.0"/>
   <testcase name="testIncorrectWordPartiallyMatching[4]" classname="BlackBoxGiven" time="0.0">
     <failure message="java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;3.0&gt; but was:&lt;2.2&gt;
 	at org.junit.Assert.fail(Assert.java:88)
