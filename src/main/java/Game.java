@@ -183,9 +183,53 @@ public class Game {
      * @return double returns the appropriate number
      */
     public double makeGuess(String guess) {
-        // Will be implemented in assignment 3
-        return 0.0;
+    guess = guess.toLowerCase(); // Normalize the input to handle case insensitivity
+
+    // Check if the game is not in progress or if the guess is empty or invalid
+    if (gameStatus != 0) {
+        return 5.1; // Game not in progress
     }
+    if (guess.isEmpty() || !guess.matches("[a-z]+")) {
+        return 4.1; // Invalid guess
+    }
+    if (guesses.contains(guess)) {
+        points -= 2; // Penalize for repeated guesses
+        return 4.0; // Already used guess
+    }
+
+    guesses.add(guess); // Add guess to the list of guesses
+
+    // Handle correct word guess
+    if (guess.equals(answer)) {
+        points += answer.length(); // Reward points based on word length
+        gameStatus = 1; // Set game status to won
+        return 0.0; // Correct guess
+    }
+
+    // Handle single letter guesses
+    if (guess.length() == 1) {
+        int occurrences = countLetters(guess.charAt(0));
+        if (occurrences > 0) {
+            points += occurrences; // Reward points for correct letter
+            return 1.0 + occurrences; // Indicate letter occurrences
+        } else {
+            points--; // Penalize for incorrect guess
+            return 1.0; // Letter not in the word
+        }
+    }
+
+    // Handle incorrect word guesses
+    if (guess.length() != answer.length()) {
+        points -= Math.abs(answer.length() - guess.length()); // Penalize based on length difference
+        return guess.length() > answer.length() ? 2.1 : 2.2; // Too long or too short
+    } else if (answer.contains(guess)) {
+        points += 2; // Reward for partially correct guess
+        return 3.0; // Partially correct word
+    } else {
+        points--; // Penalize for completely incorrect guess
+        return 2.0; // Incorrect but correct length
+    }
+}
 
     /**
      * Pulls out a random animal and sets it as answer
