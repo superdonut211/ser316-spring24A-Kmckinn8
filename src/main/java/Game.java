@@ -23,7 +23,7 @@ public class Game {
 
 
     /** The path to the file holding the leaderboard.*/
-    private String leaderboard = "leaderboard.txt";
+    private String leaderBoard = "leaderboard.txt";
 
     /** The status of the game. {0 - In progress, 1 - Game won, 2 - game over}*/
     protected int gameStatus = 0;
@@ -72,21 +72,18 @@ public class Game {
      */
     public int countCorrectLetters() {
         int result = 0;
-        if (!guesses.isEmpty()) {
-            for(int i = 0; i < this.answer.length(); i++) {
-                String current = String.valueOf(this.answer.charAt(i));
-                if (guesses.contains(current)) {
-                    System.out.print(this.answer.charAt(i));
-                }
-                else {
-                    System.out.print('_');
-                }
+        for(int i = 0; i < this.answer.length(); i++) {
+            String current = String.valueOf(this.answer.charAt(i));
+            if (guesses.contains(current.toLowerCase())) {
+                System.out.print(current);
+                result++;
+            } else {
+                System.out.print('_');
             }
-            System.out.println();
         }
-        else return 0;
-        return result;
-    }
+    System.out.println(); // Move to next line after printing current guess state
+    return result; // Return the count of correct letters
+}
     
     /**
      * Counts how often a letter occurs
@@ -118,7 +115,7 @@ public class Game {
      * @param name
      */
     public Game(String fixedWord, String name){
-        this.name = "Anna";
+        this.name = name;
         this.answer = fixedWord;
         setPoints(10);
     }
