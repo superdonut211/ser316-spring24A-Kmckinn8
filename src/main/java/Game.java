@@ -182,54 +182,87 @@ public class Game {
      * @param guess
      * @return double returns the appropriate number
      */
+    private int guessCount = 0; // Add this line to track the number of guesses
+
     public double makeGuess(String guess) {
-    guess = guess.toLowerCase(); // Normalize the input to handle case insensitivity
+        guess = guess.toLowerCase(); // Normalize the input
 
-    // Check if the game is not in progress or if the guess is empty or invalid
-    if (gameStatus != 0) {
-        return 5.1; // Game not in progress
-    }
-    if (guess.isEmpty() || !guess.matches("[a-z]+")) {
-        return 4.1; // Invalid guess
-    }
-    if (guesses.contains(guess)) {
-        points -= 2; // Penalize for repeated guesses
-        return 4.0; // Already used guess
-    }
-
-    guesses.add(guess); // Add guess to the list of guesses
-
-    // Handle correct word guess
-    if (guess.equals(answer)) {
-        points += answer.length(); // Reward points based on word length
-        gameStatus = 1; // Set game status to won
-        return 0.0; // Correct guess
-    }
-
-    // Handle single letter guesses
-    if (guess.length() == 1) {
-        int occurrences = countLetters(guess.charAt(0));
-        if (occurrences > 0) {
-            points += occurrences; // Reward points for correct letter
-            return 1.0 + occurrences; // Indicate letter occurrences
-        } else {
-            points--; // Penalize for incorrect guess
-            return 1.0; // Letter not in the word
+        // Check if the game is already over
+        if (gameStatus == 2) {
+            return 5.1; // Game over, no further guesses allowed
         }
+
+        // Increment guess count and check for game over condition
+        guessCount++;
+        if (guessCount > 10) {
+            gameStatus = 2; // Set game status to over if more than 10 guesses
+            return 5.0; // Return 5.0 only when exactly 10 incorrect guesses are made
+        }
+
+        if (guess.isEmpty() || !guess.matches("[a-z]+")) {
+            return 4.1; // Invalid guess
+        }
+        if (guesses.contains(guess)) {
+            points -= 2; // Penalize for repeated guesses
+            return 4.0; // Already used guess
+        }
+
+        guesses.add(guess); // Add guess to the list of guesses
+
+        // Handle correct word guess
+        if (guess.equals(answer)) {
+            points += answer.length(); // Reward points based on word length
+            gameStatus = 1; // Win
+            return 0.0; // Correct guess
+        }
+
+     // Handle single letter guesses
+        if (guess.length() == 1) {
+            int occurrences = countLetters(guess.charAt(0));
+            if (occurrences > 0) {
+                points += occurrences; // Reward points for correct letter
+                // Adjust return value to be 1.0 + 0.1 * occurrences
+                return 1.0 + 0.1 * occurrences; // Reflecting the expected format
+            } else {
+                points--; // Penalize for incorrect guess
+                return 1.0; // Letter not in the word
+            }
+        }
+
+     // Incorrect word guesses
+        points--; // Penalize for an incorrect guess upfront
+        if (!guess.equals(answer)) { // Check if guess is not exactly the answer
+            if (isPartiallyCorrect(guess, answer)) {
+                points += 3; // Adjust points: penalize 1 then add 3 for partial match
+                return 3.0; // Partially correct word
+            }
+            // Length checks only if not partially correct
+            if (guess.length() != answer.length()) {
+                return guess.length() > answer.length() ? 2.1 : 2.2; // Too long or too short
+            }
+            return 2.0;
+        }
+        else return 2.0;
     }
 
-    // Handle incorrect word guesses
-    if (guess.length() != answer.length()) {
-        points -= Math.abs(answer.length() - guess.length()); // Penalize based on length difference
-        return guess.length() > answer.length() ? 2.1 : 2.2; // Too long or too short
-    } else if (answer.contains(guess)) {
-        points += 2; // Reward for partially correct guess
-        return 3.0; // Partially correct word
-    } else {
-        points--; // Penalize for completely incorrect guess
-        return 2.0; // Incorrect but correct length
+    private boolean isPartiallyCorrect(String guess, String answer) {
+        // Check if the guess is automatically disqualified for being too long
+        if (guess.length() > answer.length()) {
+            return false;
+        }
+
+        // Check if the guess is automatically disqualified for being too short (3 letters or less)
+        if (guess.length() <= 3) {
+            return false;
+        }
+
+        for (char ch : guess.toCharArray()) {
+            if (!answer.contains(String.valueOf(ch))) {
+                return false;
+            }
+        }
+        return true;
     }
-}
 
     /**
      * Pulls out a random animal and sets it as answer
