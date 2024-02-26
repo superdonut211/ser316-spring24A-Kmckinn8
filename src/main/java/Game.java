@@ -3,7 +3,8 @@ import java.util.Arrays;
 
 /**
  * Class for handling some game logic for hangman game.
- * Every game starts with a score of 10 and the points are reduced based on the description of "makeGuess". Points holds the current score for one game.
+ * Every game starts with a score of 10 and the points are reduced based on 
+ * the description of "makeGuess". Points holds the current score for one game.
  * Game is lost when the user made 10 guesses and did not guess the word.
  *
  */
@@ -13,7 +14,7 @@ public class Game {
     public int points;
     
     /** Holds the round of the game. */
-    int round;
+    //int round; SER316 TASK 2 SPOT-BUGS FIX Un read field
 
     /** Holds the player name for the game. */
     String name;
@@ -23,7 +24,7 @@ public class Game {
 
 
     /** The path to the file holding the leaderboard.*/
-    private String leaderboard = "leaderboard.txt";
+    //private String leaderboard = "leaderboard.txt"; SER316 TASK 2 SPOT-BUGS FIX Un read field
 
     /** The status of the game. {0 - In progress, 1 - Game won, 2 - game over}*/
     protected int gameStatus = 0;
@@ -38,25 +39,33 @@ public class Game {
      * Gets the name for the game.
      * @return String The name.
      */
-    public String getName() {return this.name;}
+    public String getName() {
+        return this.name;
+    }
 
     /**
      * Gets the answer for the game.
      * @return String The Answer.
      */
-    public String getAnswer() {return this.answer.toLowerCase();}
+    public String getAnswer() {
+        return this.answer.toLowerCase();
+    }
 
     /**
      * Gets the current status of the game.
-     * @return
+     * @return game status
      */
-    public int getGameStatus() {return this.gameStatus;}
+    public int getGameStatus() {
+        return this.gameStatus;
+    }
 
     /**
      * Sets the score for the game.
      * @param points
      */
-    public void setPoints(int points) {this.points = points;}
+    public void setPoints(int points) {
+        this.points = points;
+    }
 
 
     /**
@@ -126,7 +135,7 @@ public class Game {
     }
 
     /**
-     * Constructs a new game with no arguments, empty name and answer
+     * Constructs a new game with no arguments, empty name and answer.
      */
     public Game(){
         this.name = "";
@@ -135,9 +144,9 @@ public class Game {
     }
 
     /**
-     * Sets the name and answers of an already existing game and clears the guesses
+     * Sets the name and answers of an already existing game and clears the guesses.
      */
-    public void initGame(String answer, String name){
+    public void initGame(String answer, String name){ 
         this.name = name;
         this.answer = answer;
         this.gameStatus = 0;
@@ -147,41 +156,49 @@ public class Game {
     }
 
     /**
-     * Checks if the guess made is correct, should ignore upper/lower case. Should give points based on made guess.
+     * Checks if the guess made is correct, should ignore upper/lower case. 
+     * Should give points based on made guess.
      * Method returns a double, number of the double has different meanings
      * 0 Correct guess
      * 1.x Letter is in the word, x represents the number of times the letter is in the word
      * 2.0 Guess has correct length
      * 2.1 Guess is too long (only if it was a word)
      * 2.2 Guess is too short (only if it was a word)
-     * 3.0 Guess is partially included in the word (only if it was a word), given instead of 2.2 if it is a partial word
+     * 3.0 Guess is partially included in the word (only if it was a word),
+     *  given instead of 2.2 if it is a partial word
      * 4.0 This guess was already used
      * 4.1 Guess includes symbols, numbers (not just letters or one letter)
      * 5. After 10 guesses the game ends and is set to game over
      * 5.1 If the player keeps guessing even though the status is not InProgress
      *
-     * The returned answer and the guess needs to be added to the respective lists for tracking.
+     * <p>The returned answer and the guess needs to be added to the respective lists for tracking.
      *
-     * If letter:
-     *  Return 1.NumOfOccurrence, 1.0 for the letter not being in the word, 1.1 for being in there once etc.
+     * <p>If letter:
+     *  Return 1.NumOfOccurrence, 1.0 for the letter not 
+     *  being in the word, 1.1 for being in there once etc.
      *  Add points according to NumOfOccurance
      *
-     * If word (go by this order of checks):
-     *  If word is correct return 0.0 and add points based on the length of the word (e.g. dog - 3 points, horse - 5 points), set game status to won
+     * <p>If word (go by this order of checks):
+     *  If word is correct return 0.0 and add points based on the 
+     *  length of the word (e.g. dog - 3 points, horse - 5 points), set game status to won
      *  If word is incorrect but has correct length return 2.0 and add 1 point
      *  If word is incorrect and is partially included in the word return 3.0 and add 2 points
-     *  If word is too long or too short return 2.1, 2.2 accordingly and reduce points based on how off the word is (e.g. how many letters off)
+     *  If word is too long or too short return 2.1, 2.2 accordingly 
+     *  and reduce points based on how off the word is (e.g. how many letters off)
      *
-     * For either:
-     *  Guess was already used, reduce points by 2 and return 4.0 (checked before 4.1 error). Guess still counts toward made guesses.
-     *  Guess includes numbers/symbols etc. (so more than just letters) reduce points by 3 and return 4.1, the guess is still added to the list of guesses
+     * <p>For either:
+     *  Guess was already used, reduce points by 2 and return 4.0 
+     *  (checked before 4.1 error). Guess still counts toward made guesses.
+     *  Guess includes numbers/symbols etc. (so more than just letters) 
+     *  reduce points by 3 and return 4.1, the guess is still added to the list of guesses
      *
      *
-     * Score can also be negative, that is no problem.
-     * When the player guessed 10 times and did not guess the word set the game to game over (status) and return 5.0 (no matter if there was another error).
+     * <p>Score can also be negative, that is no problem.
+     * When the player guessed 10 times and did not guess the word set the game to 
+     * game over (status) and return 5.0 (no matter if there was another error).
      * If the player guesses again, even though game status is won or game over return 5.1.
      *
-     * @param guess
+     * <p>@param guess
      * @return double returns the appropriate number
      */
     private int guessCount = 0; // Add this line to track the number of guesses
@@ -225,7 +242,8 @@ public class Game {
                 points += occurrences; // Reward points for correct letter
                 // Adjust return value to be 1.0 + 0.1 * occurrences
                 return 1.0 + 0.1 * occurrences; // Reflecting the expected format
-            } else {
+            } 
+            else {
                 points--; // Penalize for incorrect guess
                 return 1.0; // Letter not in the word
             }
@@ -233,7 +251,7 @@ public class Game {
 
      // Incorrect word guesses
         points--; // Penalize for an incorrect guess upfront
-        if (!guess.equals(answer)) { // Check if guess is not exactly the answer
+        if (!guess.equals(answer)) {
             if (isPartiallyCorrect(guess, answer)) {
                 points += 3; // Adjust points: penalize 1 then add 3 for partial match
                 return 3.0; // Partially correct word
@@ -244,7 +262,9 @@ public class Game {
             }
             return 2.0;
         }
-        else return 2.0;
+        else {
+        	return 2.0;
+        }
     }
 
     private boolean isPartiallyCorrect(String guess, String answer) {
