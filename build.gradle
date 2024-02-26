@@ -11,6 +11,9 @@ mainClassName = 'Main'
 run {
     standardInput = System.in
 }
+test {
+    exclude '**/BlackBoxGiven.class'
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
