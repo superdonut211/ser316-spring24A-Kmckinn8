@@ -1,11 +1,6 @@
 plugins {
-<<<<<<< HEAD
-    id "com.github.spotbugs" version "5.0.12"
-    id "checkstyle"
-=======
      id "com.github.spotbugs" version "5.0.12"
      id "checkstyle"
->>>>>>> StaticAnalysis
 }
 
 apply plugin: 'application'
@@ -18,17 +13,13 @@ mainClassName = 'Main'
 run {
     standardInput = System.in
 }
-<<<<<<< HEAD
 
 test {
     exclude '**/BlackBoxGiven.class'
 }
 
-=======
-test {
-    exclude '**/BlackBoxGiven.class'
-}
->>>>>>> master
+
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     jcenter()
@@ -40,7 +31,7 @@ dependencies {
     implementation files('cls/')
 }
 
-<<<<<<< HEAD
+
 apply plugin: 'checkstyle'
 checkstyle {
   // Keep checkstyle a little quieter
@@ -48,7 +39,6 @@ checkstyle {
   showViolations = false
 }
 
-=======
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
 }
@@ -64,13 +54,7 @@ jacocoTestReport {
     }
 }
 
-apply plugin: 'checkstyle'
-checkstyle {
-   // Keep checkstyle a little quieter
-  ignoreFailures = true
-  showViolations = false
-}
->>>>>>> StaticAnalysis
+
 tasks.withType(Checkstyle) {
   reports {
     html.enabled = true
@@ -85,11 +69,10 @@ checkstyle {
 ///////////////////////////////////////////////////////////////////////
 // Configure SpotBugs
 ///////////////////////////////////////////////////////////////////////
-<<<<<<< HEAD
+
 // To generate an HTML report instead of XML
-=======
 //To generate an HTML report instead of XML
->>>>>>> StaticAnalysis
+
 spotbugsMain {
     reports {
         xml.enabled = false
