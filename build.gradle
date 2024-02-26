@@ -11,11 +11,17 @@ mainClassName = 'Main'
 run {
     standardInput = System.in
 }
+<<<<<<< HEAD
 
 test {
     exclude '**/BlackBoxGiven.class'
 }
 
+=======
+test {
+    exclude '**/BlackBoxGiven.class'
+}
+>>>>>>> master
 // In this section you declare where to find the dependencies of your project
 repositories {
     jcenter()
