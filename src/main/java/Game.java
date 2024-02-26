@@ -100,7 +100,7 @@ public class Game {
 
     
     /**
-     * Counts how often a letter occurs
+     * Counts how often a letter occurs.
      * @param letter
      */
     public int countLetters(char letter) {
@@ -235,7 +235,7 @@ public class Game {
             return 0.0; // Correct guess
         }
 
-     // Handle single letter guesses
+        // Handle single letter guesses
         if (guess.length() == 1) {
             int occurrences = countLetters(guess.charAt(0));
             if (occurrences > 0) {
@@ -249,7 +249,7 @@ public class Game {
             }
         }
 
-     // Incorrect word guesses
+        // Incorrect word guesses
         points--; // Penalize for an incorrect guess upfront
         if (!guess.equals(answer)) {
             if (isPartiallyCorrect(guess, answer)) {
@@ -263,7 +263,7 @@ public class Game {
             return 2.0;
         }
         else {
-        	return 2.0;
+            return 2.0;
         }
     }
 
@@ -287,7 +287,7 @@ public class Game {
     }
 
     /**
-     * Pulls out a random animal and sets it as answer
+     * Pulls out a random animal and sets it as answer.
      */
     public void setRandomWord() {
 
