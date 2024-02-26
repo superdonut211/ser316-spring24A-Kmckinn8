@@ -9,9 +9,10 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ master, Blackbox, Review, StaticAnalysis, Whitebox ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ master, Blackbox, Review, StaticAnalysis, Whitebox ]
+
 
 jobs:
   build:
