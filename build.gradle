@@ -13,7 +13,6 @@ run {
 }
 test {
     exclude '**/BlackBoxGiven.class'
-    exclude '**/GivenWhiteBox.class'
 }
 // In this section you declare where to find the dependencies of your project
 repositories {
