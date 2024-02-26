@@ -1,9 +1,16 @@
 plugins {
+<<<<<<< HEAD
     id "com.github.spotbugs" version "5.0.12"
     id "checkstyle"
+=======
+     id "com.github.spotbugs" version "5.0.12"
+     id "checkstyle"
+>>>>>>> StaticAnalysis
 }
 
 apply plugin: 'application'
+apply plugin: 'jacoco'
+
 
 
 mainClassName = 'Main'
@@ -33,6 +40,7 @@ dependencies {
     implementation files('cls/')
 }
 
+<<<<<<< HEAD
 apply plugin: 'checkstyle'
 checkstyle {
   // Keep checkstyle a little quieter
@@ -40,6 +48,29 @@ checkstyle {
   showViolations = false
 }
 
+=======
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+jacocoTestReport {
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+apply plugin: 'checkstyle'
+checkstyle {
+   // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+}
+>>>>>>> StaticAnalysis
 tasks.withType(Checkstyle) {
   reports {
     html.enabled = true
@@ -54,7 +85,11 @@ checkstyle {
 ///////////////////////////////////////////////////////////////////////
 // Configure SpotBugs
 ///////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 // To generate an HTML report instead of XML
+=======
+//To generate an HTML report instead of XML
+>>>>>>> StaticAnalysis
 spotbugsMain {
     reports {
         xml.enabled = false

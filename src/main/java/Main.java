@@ -1,7 +1,8 @@
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in);
+	static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name()); //SER316 TASK 2 SPOT-BUGS FIX needed to change
     public static void main(String[] args) {
         // just some calls
         System.out.println("Getting started");
