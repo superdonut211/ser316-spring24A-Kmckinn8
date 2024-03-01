@@ -1,6 +1,7 @@
 plugins {
     id "com.github.spotbugs" version "5.0.12"
     id "checkstyle"
+    id 'pmd'
 }
 
 apply plugin: 'application'
@@ -25,6 +26,15 @@ repositories {
 dependencies {
     implementation "junit:junit:4.12"
     implementation files('cls/')
+}
+
+apply plugin: "pmd"
+pmd {
+  ignoreFailures = true 
+  sourceSets = [sourceSets.main]
+  reportsDir = file("$project.buildDir/reports/pmd")
+  ruleSets = []
+  ruleSetConfig = resources.text.fromFile('ruleset.xml')
 }
 
 apply plugin: 'checkstyle'
